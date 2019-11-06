@@ -1,0 +1,7 @@
+FROM openjdk:8
+
+COPY ["target/signatures-app.jar", "/"]
+
+EXPOSE 8084
+
+CMD ["java", "-jar", "signatures-app.jar"]

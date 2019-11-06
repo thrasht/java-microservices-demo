@@ -1,0 +1,7 @@
+FROM openjdk:8
+
+COPY ["target/students-app.jar", "/"]
+
+EXPOSE 8081
+
+CMD ["java", "-jar", "students-app.jar"]
