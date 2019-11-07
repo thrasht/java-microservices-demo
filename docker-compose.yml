@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  configserver:
+    build: ./configserver
+
+  studentservice:
+    build: ./coe-apigee-demo
+    depends_on: 
+      - configserver
+      - mysql-db-students
+    ports: 
+      - 8081:8081
+    restart: always
+
+  professorservice:
+    build: ./professors
+    depends_on: 
+      - configserver
+      - mysql-db-professors
+    ports: 
+      - 8082:8082
+    restart: always
+
+  signatureservice:
+    build: ./signature
+    depends_on: 
+      - configserver
+      - mysql-db-signatures
+    ports: 
+      - 8084:8084
+    restart: always
+
+  mysql-db-students:
+    image: mysql
+    volumes:
+      - students-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: students
+
+  mysql-db-professors:
+    image: mysql
+    volumes:
+      - professors-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: professors
+
+  mysql-db-signatures:
+    image: mysql
+    volumes:
+      - signatures-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: signatures
+
+volumes:
+  students-data:
+  professors-data:
+  signatures-data:

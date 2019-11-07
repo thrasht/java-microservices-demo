@@ -1,0 +1,7 @@
+FROM openjdk:8
+
+COPY ["target/configserver-app.jar", "/"]
+
+EXPOSE 8888
+
+CMD ["java", "-jar", "configserver-app.jar"]

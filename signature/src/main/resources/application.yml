@@ -1,6 +1,6 @@
 spring:
   application:
-    name: studentservice
+    name: signatureservice
   profiles:
     active:
       default
