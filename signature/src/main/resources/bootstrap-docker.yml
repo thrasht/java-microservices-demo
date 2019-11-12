@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: signatureservice
+  profiles:
+    active:
+      docker
+  cloud:
+    config:
+      uri: http://configserver:8888

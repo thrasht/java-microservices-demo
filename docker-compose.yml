@@ -2,34 +2,40 @@ version: '3'
 
 services:
   configserver:
-    build: ./configserver
+    image: edthrasht/configserver:1
 
   studentservice:
-    build: ./coe-apigee-demo
+    image: edthrasht/studentservice:1
     depends_on: 
       - configserver
       - mysql-db-students
     ports: 
       - 8081:8081
     restart: always
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
 
   professorservice:
-    build: ./professors
+    image: edthrasht/professorservice:1
     depends_on: 
       - configserver
       - mysql-db-professors
     ports: 
       - 8082:8082
     restart: always
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
 
   signatureservice:
-    build: ./signature
+    image: edthrasht/signatureservice:1
     depends_on: 
       - configserver
       - mysql-db-signatures
     ports: 
       - 8084:8084
     restart: always
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
 
   mysql-db-students:
     image: mysql

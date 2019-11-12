@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: studentservice
+  profiles:
+    active:
+      docker
+  cloud:
+    config:
+      uri: http://configserver:8888

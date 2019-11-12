@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: signatureservice
-  profiles:
-    active:
-      default
-  cloud:
-    config:
-      uri: http://configserver:8888
