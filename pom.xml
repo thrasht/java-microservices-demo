@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.coe</groupId>
+  <artifactId>school-app</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>school-app</name>
+  <description>A wrapper to compile all of the components of B2C WEB application</description>
+  <modules>
+	<module>classes</module>
+    <module>coe-apigee-demo</module>
+    <module>configserver</module>
+    <module>professors</module>
+    <module>signature</module>
+  </modules>
+</project>
